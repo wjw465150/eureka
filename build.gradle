@@ -20,7 +20,7 @@ apply plugin: 'org.springframework.boot'
 group = 'org.wjw'
 version = '1.0.0-SNAPSHOT'
 sourceCompatibility = 1.8
-[compileJava, compileTestJava]*.options*.encoding = 'GBK'
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
 repositories {
     mavenLocal()
