@@ -31,6 +31,6 @@ public class EurekaApplication implements EnvironmentAware {
           System.exit(-1);
         }
         
-        log.debug("µ±«∞ActiveProfiles:"+env.getActiveProfiles().toString()); 
+        log.debug("ÂΩìÂâçActiveProfiles:"+env.getActiveProfiles().toString()); 
 	}
 }
