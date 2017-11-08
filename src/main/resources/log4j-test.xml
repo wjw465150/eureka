@@ -16,7 +16,7 @@
   </appender>
 
   <appender name="file" class="org.apache.log4j.DailyRollingFileAppender">
-    <param name="File" value="${java.io.tmpdir}/logs/Eureka_Server__test.log"/>
+    <param name="File" value="${java.io.tmpdir}/logs/Eureka_Server_test.log"/>
     <param name="DatePattern" value="'.'yyyy-MM-dd"/>
     <layout class="org.apache.log4j.PatternLayout">
       <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%p] [%t] [%c] - %m%n"/>
