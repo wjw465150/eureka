@@ -1,9 +1,5 @@
 package org.wjw.cloud;
 
-import java.io.FileNotFoundException;
-
-import javax.xml.parsers.FactoryConfigurationError;
-
 import org.apache.log4j.xml.DOMConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.Environment;
 
@@ -21,7 +18,13 @@ public class EurekaApplication implements EnvironmentAware {
 	private String loggingConfig;
 
 	public static void main(String[] args) {
-		SpringApplication.run(EurekaApplication.class, args);
+		final ConfigurableApplicationContext applicationContext = SpringApplication.run(EurekaApplication.class, args);
+		Runtime.getRuntime().addShutdownHook(new Thread() {
+			@Override
+			public void run() {
+				applicationContext.close();
+			}
+		});
 	}
 
 	@Override
